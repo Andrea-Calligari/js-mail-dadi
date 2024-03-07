@@ -15,31 +15,33 @@ buttonDOMElement.addEventListener('click', function () {
 
 
     // - creare una lista con tot mail
-    const emailOne = 'andrea.rossi@gmail.com';
-    const emailTwo = 'pippo.franco@libero.it';
-    const emailThree = 'ciruzz@fastewb.it';
 
-    const arrayList = [emailOne, emailTwo, emailThree];
+
+
+    const checkedEmails = [
+        'andrea.rossi@gmail.com', // i = 0
+        'pippo.franco@libero.it', // i = 1
+        'topolino@gmail.com', //
+        'gianpiero@gmail.com',
+    ];
+
+    let trovato = false;
 
     //Controllare che la mail ricevuta sia nella lista di chi puo' accedervi
+    for (let i = 0; i < checkedEmails.length; i++) {
 
+        const currentEmail = checkedEmails[i];
 
-    //  console.log(arrayList)
-
-    // - se la mail  e' presente nella lista 
-    
-    if (emailValue === emailOne || emailValue === emailTwo || emailValue === emailThree) {
-        //l'utente puo' accedere alla lista 
-        //stampare il messaggio appropriato
-        
-        console.log('Benvenuto nella lista !', emailValue,);
-    } else {
-        //l'utente non puo' accedere alla lista 
-        //stampare il messaggio appropriato
-
-        console.log('Non é possibile accedere in lista perché la mail non é presente', emailValue, '!!NOT FOUND!!');
-
+        if (emailValue === currentEmail) {
+           trovato = true;
+        } 
     }
 
+    // - se la mail  e' presente nella lista
+    if (trovato === true) {
+        console.log('Benvenuto');
+    } else {
+        console.log('Accesso Negato');
+    }
 })
 
